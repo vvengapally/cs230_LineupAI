@@ -104,7 +104,6 @@ def load_player_data(filepath='player_probabilities.csv'):
          return None
     return df
 
-# --- USAGE EXAMPLE ---
 # 1. Load real probability data
 player_probs = load_player_data()
 
@@ -113,7 +112,6 @@ if player_probs is not None:
     sim = BaseballSimulator(player_probs)
 
     # 3. Define a lineup using actual player IDs from your CSV
-    # NOTE: You must replace these with ACTUAL IDs from your player_probabilities.csv
     available_players = player_probs.index.tolist()
     if len(available_players) < 9:
         print("Not enough players in CSV to make a lineup.")
@@ -130,3 +128,4 @@ if player_probs is not None:
         print(f"Running {num_games} Monte Carlo simulations...")
         results = [sim.simulate_game(my_lineup) for _ in range(num_games)]
         print(f"Average Runs over {num_games} games: {np.mean(results):.2f}")
+
